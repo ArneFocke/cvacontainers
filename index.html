@@ -310,18 +310,22 @@
   /* ---------- responsive ---------- */
   @media (max-width: 980px){
     nav.primary ul{display:none;}
-    .menu-toggle{display:block;}
-    /* group the call button next to the menu button on the right */
-    .nav-row{gap:2px;}
+    /* group call + menu buttons on the right, both vertically centered */
+    .nav-row{gap:6px; padding:14px 0;}
+    .brand{font-size:23px;}
     nav.primary{margin-left:auto;}
     .call-btn{
-      width:38px; height:38px; padding:0; justify-content:center;
+      width:40px; height:40px; padding:0; justify-content:center; align-items:center;
       background:transparent; color:var(--orange-deep); border:none;
     }
     .call-btn:hover{background:transparent;}
     .call-btn .call-num{display:none;}
-    .call-btn svg{width:22px; height:22px;}
-    .menu-toggle{width:38px; height:38px; border:none;}
+    .call-btn svg{width:23px; height:23px;}
+    .menu-toggle{
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px;
+      width:40px; height:40px; border:none; padding:0;
+    }
+    .menu-toggle span{margin:0;}
     .hero-grid{grid-template-columns:1fr;}
     .hero-panel{order:-1;}
     .svc-grid{grid-template-columns:1fr 1fr;}
