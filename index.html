@@ -33,6 +33,7 @@
     font-size:17px;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
@@ -105,6 +106,10 @@
   .menu-toggle span{
     display:block; width:20px; height:2px; background:var(--ink); margin:4px auto;
   }
+  /* mobile dropdown menu — hidden until toggled open */
+  #mnav{display:none;}
+  #mnav.open{display:block;}
+  #mnav a{text-decoration:none; color:var(--ink-soft);}
 
   /* ---------- hero ---------- */
   .hero{
@@ -296,6 +301,16 @@
   @media (max-width: 980px){
     nav.primary ul{display:none;}
     .menu-toggle{display:block;}
+    /* group the call button next to the menu button on the right */
+    .nav-row{gap:12px;}
+    nav.primary{margin-left:auto;}
+    .call-btn{
+      width:44px; height:44px; padding:0; justify-content:center;
+      background:var(--orange);
+    }
+    .call-btn .call-num{display:none;}
+    .call-btn svg{width:20px; height:20px;}
+    .menu-toggle{width:44px; height:44px;}
     .hero-grid{grid-template-columns:1fr;}
     .hero-panel{order:-1;}
     .svc-grid{grid-template-columns:1fr 1fr;}
@@ -336,15 +351,15 @@
       </ul>
       <a class="call-btn" href="tel:+32468109478">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        0468 10 94 78
+        <span class="call-num">0468 10 94 78</span>
       </a>
     </nav>
     <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div id="mnav" style="display:none;" class="wrap">
-    <ul style="list-style:none; padding:0 0 18px; margin:0; display:grid; gap:14px; font-weight:600;">
+  <div id="mnav" class="wrap">
+    <ul onclick="document.getElementById('mnav').classList.remove('open')" style="list-style:none; padding:0 0 18px; margin:0; display:grid; gap:14px; font-weight:600;">
       <li><a href="#diensten">Diensten</a></li>
       <li><a href="#grondwerken">Grondwerken</a></li>
       <li><a href="#sloopwerken">Sloopwerken</a></li>
