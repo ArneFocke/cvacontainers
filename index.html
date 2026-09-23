@@ -108,8 +108,18 @@
   }
   /* mobile dropdown menu — hidden until toggled open */
   #mnav{display:none;}
-  #mnav.open{display:block;}
-  #mnav a{text-decoration:none; color:var(--ink-soft);}
+  #mnav.open{display:block; background:var(--paper); padding-top:4px; padding-bottom:14px;}
+  #mnav ul{list-style:none; margin:0; padding:0; border-top:1px solid var(--line);}
+  #mnav li a{
+    display:block; padding:14px 2px; border-bottom:1px solid var(--line);
+    text-decoration:none; color:var(--ink-soft); font-weight:600; font-size:16px;
+  }
+  #mnav li a:hover{color:var(--orange);}
+  #mnav a.mnav-call{
+    margin-top:16px; border:none; border-radius:2px;
+    background:var(--orange); color:#fff; text-align:center; padding:15px;
+  }
+  #mnav a.mnav-call:hover{background:var(--orange-deep); color:#fff;}
 
   /* ---------- hero ---------- */
   .hero{
@@ -302,15 +312,16 @@
     nav.primary ul{display:none;}
     .menu-toggle{display:block;}
     /* group the call button next to the menu button on the right */
-    .nav-row{gap:12px;}
+    .nav-row{gap:2px;}
     nav.primary{margin-left:auto;}
     .call-btn{
-      width:44px; height:44px; padding:0; justify-content:center;
-      background:var(--orange);
+      width:38px; height:38px; padding:0; justify-content:center;
+      background:transparent; color:var(--orange-deep); border:none;
     }
+    .call-btn:hover{background:transparent;}
     .call-btn .call-num{display:none;}
-    .call-btn svg{width:20px; height:20px;}
-    .menu-toggle{width:44px; height:44px;}
+    .call-btn svg{width:22px; height:22px;}
+    .menu-toggle{width:38px; height:38px; border:none;}
     .hero-grid{grid-template-columns:1fr;}
     .hero-panel{order:-1;}
     .svc-grid{grid-template-columns:1fr 1fr;}
@@ -359,14 +370,14 @@
     </button>
   </div>
   <div id="mnav" class="wrap">
-    <ul onclick="document.getElementById('mnav').classList.remove('open')" style="list-style:none; padding:0 0 18px; margin:0; display:grid; gap:14px; font-weight:600;">
+    <ul onclick="document.getElementById('mnav').classList.remove('open')">
       <li><a href="#diensten">Diensten</a></li>
       <li><a href="#grondwerken">Grondwerken</a></li>
       <li><a href="#sloopwerken">Sloopwerken</a></li>
       <li><a href="#containers">Containerverhuur</a></li>
       <li><a href="#renovatie">Algemene renovatie</a></li>
       <li><a href="#prijzen">Prijzen</a></li>
-      <li><a href="tel:+32468109478" style="color:var(--orange-deep);">Bel 0468 10 94 78</a></li>
+      <li><a class="mnav-call" href="tel:+32468109478">Bel 0468 10 94 78</a></li>
     </ul>
   </div>
   <div class="stripe thin"></div>
